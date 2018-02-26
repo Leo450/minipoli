@@ -1,0 +1,232 @@
+2018-02-14T09:30:56+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/page.php(13): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19):
+
+2018-02-14T09:30:59+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/page.php(13): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19):
+
+2018-02-14T09:31:04+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/page.php(13): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19):
+
+2018-02-14T09:31:18+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/page.php(13): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19):
+
+2018-02-14T09:31:34+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/page.php(13): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19):
+
+2018-02-14T09:33:33+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/page.php(13): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19):
+
+2018-02-14T09:33:44+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/index.php(14): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19)
+
+2018-02-14T09:33:47+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/page.php(13): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19):
+
+2018-02-14T09:34:12+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/index.php(14): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19)
+
+2018-02-14T10:39:42+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/index.php(14): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19)
+
+2018-02-14T10:39:52+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /var/www/minipoli/wp-content/plugins/woo-add-to-quote/js.php:19
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): watq_quote_js('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-includes/general-template.php(2614): do_action('wp_head')
+#4 /var/www/minipoli/wp-content/themes/storefront/header.php(18): wp_head()
+#5 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#6 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#7 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#8 /var/www/minipoli/wp-content/themes/storefront/index.php(14): get_header()
+#9 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#10 /var/www/minipoli/wp-blog-header.php(19)
+
+2018-02-24T15:15:44+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in /var/www/minipoli/wp-content/themes/minipoli/inc/minipoli-template-functions.php:103
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): minipoli_site_baseline('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-content/themes/storefront/header.php(45): do_action('storefront_head...')
+#4 /var/www/minipoli/wp-includes/template.php(688): require_once('/var/www/minipo...')
+#5 /var/www/minipoli/wp-includes/template.php(647): load_template('/var/www/minipo...', true)
+#6 /var/www/minipoli/wp-includes/general-template.php(41): locate_template(Array, true)
+#7 /var/www/minipoli/wp-content/plugins/woocommerce/templates/archive-product.php(23): get_header('shop')
+#8 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#9 /var/www/minipoli/wp-blog-header.php(19): requi
+
+2018-02-24T16:40:55+00:00 CRITICAL Uncaught Error: Call to undefined function storefront_is_woocommerce_activated() in /var/www/minipoli/wp-content/themes/minipoli/functions.php:17
+Stack trace:
+#0 /var/www/minipoli/wp-settings.php(424): include()
+#1 /var/www/minipoli/wp-config.php(94): require_once('/var/www/minipo...')
+#2 /var/www/minipoli/wp-load.php(37): require_once('/var/www/minipo...')
+#3 /var/www/minipoli/wp-admin/admin-ajax.php(22): require_once('/var/www/minipo...')
+#4 {main}
+  thrown
+
+2018-02-24T16:41:55+00:00 CRITICAL Uncaught Error: Call to undefined function storefront_is_woocommerce_activated() in /var/www/minipoli/wp-content/themes/minipoli/functions.php:17
+Stack trace:
+#0 /var/www/minipoli/wp-settings.php(424): include()
+#1 /var/www/minipoli/wp-config.php(94): require_once('/var/www/minipo...')
+#2 /var/www/minipoli/wp-load.php(37): require_once('/var/www/minipo...')
+#3 /var/www/minipoli/wp-admin/admin-ajax.php(22): require_once('/var/www/minipo...')
+#4 {main}
+  thrown
+
+2018-02-24T16:51:57+00:00 CRITICAL Uncaught Error: Class 'IntlDateFormatter' not found in /var/www/minipoli/wp-content/plugins/schedulecategory/front/category.php:14
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): minipoli_schcat_message('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-content/plugins/woocommerce/templates/archive-product.php(61): do_action('woocommerce_bef...')
+#4 /var/www/minipoli/wp-content/plugins/woocommerce/includes/wc-core-functions.php(211): include('/var/www/minipo...')
+#5 /var/www/minipoli/wp-content/plugins/woocommerce/templates/taxonomy-product_cat.php(22): wc_get_template('archive-product...')
+#6 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#7 /var/www/minipoli/wp-blog-header.php(19): require_once('/var/www/minipo...')
+#8 /var/www/minipoli/index.php(17): require('/var/www/minipo...')
+#9 {main}
+  thrown
+
+2018-02-24T16:52:06+00:00 CRITICAL Uncaught Error: Class 'IntlDateFormatter' not found in /var/www/minipoli/wp-content/plugins/schedulecategory/front/category.php:13
+Stack trace:
+#0 /var/www/minipoli/wp-includes/class-wp-hook.php(286): minipoli_schcat_message('')
+#1 /var/www/minipoli/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/minipoli/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/minipoli/wp-content/plugins/woocommerce/templates/archive-product.php(61): do_action('woocommerce_bef...')
+#4 /var/www/minipoli/wp-content/plugins/woocommerce/includes/wc-core-functions.php(211): include('/var/www/minipo...')
+#5 /var/www/minipoli/wp-content/plugins/woocommerce/templates/taxonomy-product_cat.php(22): wc_get_template('archive-product...')
+#6 /var/www/minipoli/wp-includes/template-loader.php(74): include('/var/www/minipo...')
+#7 /var/www/minipoli/wp-blog-header.php(19): require_once('/var/www/minipo...')
+#8 /var/www/minipoli/index.php(17): require('/var/www/minipo...')
+#9 {main}
+  thrown
+
+2018-02-24T17:14:11+00:00 CRITICAL Uncaught Error: Call to undefined function storefront_is_woocommerce_activated() in /var/www/minipoli/wp-content/themes/minipoli/functions.php:17
+Stack trace:
+#0 /var/www/minipoli/wp-settings.php(424): include()
+#1 /var/www/minipoli/wp-config.php(94): require_once('/var/www/minipo...')
+#2 /var/www/minipoli/wp-load.php(37): require_once('/var/www/minipo...')
+#3 /var/www/minipoli/wp-blog-header.php(13): require_once('/var/www/minipo...')
+#4 /var/www/minipoli/index.php(17): require('/var/www/minipo...')
+#5 {main}
+  thrown
+
+2018-02-24T17:14:12+00:00 CRITICAL Uncaught Error: Call to undefined function storefront_is_woocommerce_activated() in /var/www/minipoli/wp-content/themes/minipoli/functions.php:17
+Stack trace:
+#0 /var/www/minipoli/wp-settings.php(424): include()
+#1 /var/www/minipoli/wp-config.php(94): require_once('/var/www/minipo...')
+#2 /var/www/minipoli/wp-load.php(37): require_once('/var/www/minipo...')
+#3 /var/www/minipoli/wp-admin/admin-ajax.php(22): require_once('/var/www/minipo...')
+#4 {main}
+  thrown
+

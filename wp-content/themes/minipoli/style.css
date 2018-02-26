@@ -1,0 +1,133 @@
+/*
+ Theme Name:   Minipoli
+ Description:  StoreFront Child Theme
+ Author:       Léo Clément
+ Template:     storefront
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  storefront-child
+*/
+
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_bold-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_bold-webfont.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_bold_oblique-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_bold_oblique-webfont.woff') format('woff');
+	font-weight: 600;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_light-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_light-webfont.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_light_oblique-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_light_oblique-webfont.woff') format('woff');
+	font-weight: 300;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_oblique-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_oblique-webfont.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_regular-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_regular-webfont.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_semi_bold-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_semi_bold-webfont.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'ginora_sans';
+	src: url('assets/fonts/GinoraSans/ginvra_sans_semi_bold_oblique-webfont.woff2') format('woff2'),
+	url('assets/fonts/GinoraSans/ginvra_sans_semi_bold_oblique-webfont.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'libel_suit';
+	src: url('assets/fonts/LibelSuit/libel-suit-rg-webfont.woff2') format('woff2'),
+	url('assets/fonts/LibelSuit/libel-suit-rg-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'mon_cherry';
+	src: url('assets/fonts/MonCherry/mon_cherry-webfont.woff2') format('woff2'),
+	url('assets/fonts/MonCherry/mon_cherry-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, button, input, textarea{
+	font-family:ginora_sans;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family:libel_suit;
+}
+
+.page-template-template-homepage.has-post-thumbnail .type-page.has-post-thumbnail .entry-title{
+	opacity:1;
+}
+
+.site-branding{
+	float:none!important;
+	width:100%!important;
+	text-align:center;
+}
+.site-branding img{
+	display:inline;
+}
+
+.site-description{
+	margin-bottom:4em;
+	text-align:center;
+	text-transform:uppercase;
+	letter-spacing:.25em;
+	line-height:2.5em;
+	font-weight:bold;
+}
+.site-description a{
+	font-weight:bold;
+}
+
+.site-search{
+	margin:0;
+}
+
+.main-navigation ul li a{
+	font-weight:bold;
+}
+
+.homepage-banner{
+	text-align:center;
+}
+.homepage-banner img{
+	display:inline;
+	max-width:100%;
+}
+
+ul.products li.product .woocommerce-loop-product__title, ul.products li.product h2, ul.products li.product h3{
+	font-size:1.75rem;
+}
