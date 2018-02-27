@@ -68,6 +68,13 @@ function prsckie_product_data_fields()
 				'description' => __("Texte initial des champs avant saisie de l'utilisateur.", "prsckie")
 			]);
 
+			woocommerce_wp_textarea_input([
+				'id' => "_prsckie_required_message",
+				'label' => __("Message si requis manquant", "prsckie"),
+				'desc_tip' => "true",
+				'description' => __("Message d'erreur affiché si l'utilisateur ne remplis pas un champ requis.", "prsckie")
+			]);
+
 			?>
 
 		</div>
@@ -93,6 +100,9 @@ function prsckie_save_product_data_fields($post_id)
 	}
 	if(isset($_POST['_prsckie_inputs_placeholder']) && !empty($_POST['_prsckie_inputs_placeholder'])){
 		update_post_meta($post_id, '_prsckie_inputs_placeholder', esc_attr($_POST['_prsckie_inputs_placeholder']));
+	}
+	if(isset($_POST['_prsckie_required_message']) && !empty($_POST['_prsckie_required_message'])){
+		update_post_meta($post_id, '_prsckie_required_message', esc_attr($_POST['_prsckie_required_message']));
 	}
 
 }

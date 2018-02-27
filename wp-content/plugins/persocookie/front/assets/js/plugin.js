@@ -18,6 +18,9 @@ Prsckie.prototype.initVars = function(prsckie_data)
 		height: this.$thumbnail_container.height()
 	};
 
+	this.$pif_input = jQuery("textarea[id^='alg_wc_pif_local_']");
+	this.$pif_input_container = this.$pif_input.parents("table");
+
 };
 Prsckie.prototype.initDOM = function()
 {
@@ -38,6 +41,9 @@ Prsckie.prototype.initDOM = function()
 		this.$thumbnail_container.append($input);
 
 	}
+
+	this.$pif_input.removeAttr("required");
+	//this.$pif_input_container.hide();
 
 };
 Prsckie.getInputIndex = function($input)
@@ -88,7 +94,34 @@ Prsckie.prototype.bindInputFocusBehaviour = function($input)
 
 		}
 
+		self.updatePifInputVal();
+
 	});
+
+};
+Prsckie.prototype.updatePifInputVal = function()
+{
+
+	var pif_input_val = "";
+
+	for(var i = 0; i < this.$inputs.length; i++){
+		var $loop_input = this.$inputs[i];
+
+		var input_val = $loop_input.val();
+
+		if(input_val != ""){
+
+			if(i > 0){
+				pif_input_val += "<br>";
+			}
+
+			pif_input_val += $loop_input.val();
+
+		}
+
+	}
+
+	this.$pif_input.val(pif_input_val);
 
 };
 
