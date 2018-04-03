@@ -45,7 +45,7 @@ function prsckie_front_enqueue_scripts()
 	wp_register_style("prsckie-style", PRSCKIE_PLUGIN_URL . "/front/assets/css/single-product.css");
 	wp_enqueue_style("prsckie-style");
 
-	wp_register_script("prsckie-plugin", PRSCKIE_PLUGIN_URL . "/front/assets/js/plugin.js");
+	wp_register_script("prsckie-plugin", PRSCKIE_PLUGIN_URL . "/front/assets/js/persocookie.js");
 	wp_localize_script("prsckie-plugin", "prsckie_data", $prsckie_data);
 	wp_enqueue_script("prsckie-plugin");
 

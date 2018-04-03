@@ -131,3 +131,7 @@ h1, h2, h3, h4, h5, h6{
 ul.products li.product .woocommerce-loop-product__title, ul.products li.product h2, ul.products li.product h3{
 	font-size:1.75rem;
 }
+
+.woocommerce-info, .woocommerce-noreviews, p.no-comments{
+	background-color:#de676f;
+}

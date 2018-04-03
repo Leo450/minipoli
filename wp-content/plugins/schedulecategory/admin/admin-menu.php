@@ -6,7 +6,7 @@
 function schcat_admin_enqueue_scripts($hook)
 {
 
-	if($hook != "toplevel_page_schcat_admin_menu_page"){
+	if($hook != "toplevel_page_schcat_page__admin_menu"){
 		return;
 	}
 
@@ -29,7 +29,7 @@ add_action("admin_enqueue_scripts", "schcat_admin_enqueue_scripts");
  * -----------------------------
  */
 
-function schcat_get_current_category_id()
+function schcat_get_request_current_category_id()
 {
 
 	$product_categories = get_terms([
@@ -53,19 +53,70 @@ function schcat_get_current_category_id()
 
 }
 
+function schcat_get_current_category_id()
+{
+
+	if(!defined("SCHCAT_CURRENT_CATEGORY_ID")){
+		define("SCHCAT_CURRENT_CATEGORY_ID", schcat_get_request_current_category_id());
+	}
+
+	return SCHCAT_CURRENT_CATEGORY_ID;
+
+}
+
 function schcat_get_option_group()
 {
 
-	return "schcat_dates_cat_" . SCHCAT_CURRENT_CATEGORY_ID;
+	return "schcat_option_group__category_" . schcat_get_current_category_id() . "_dates";
 
 }
 
-function schcat_get_field_name($setting)
+function schcat_get_option_name($setting)
 {
 
-	return schcat_get_option_group() . "_" . $setting;
+	return "schcat_option__category_" . schcat_get_current_category_id() . "_dates__" . $setting;
 
 }
+
+function schcat_update_products_stock_status($new_value, $old_value)
+{
+
+	if(get_option("schcat_option__settings__update_products_stock") != "on"){
+		return $new_value;
+	}
+
+	$is_category_enabled = schcat_is_category_enabled(schcat_get_current_category_id());
+
+	if($is_category_enabled === null){
+		return $new_value;
+	}
+
+	$products = new WP_Query([
+		'post_type' => "product",
+		'posts_per_page' => -1,
+		'tax_query' => [
+			[
+				'taxonomy' => 'product_cat',
+				'field' => 'term_id',
+				'terms' => schcat_get_current_category_id(),
+				'operator' => 'IN'
+			]
+		]
+	]);
+
+	foreach($products->posts as $product_post){
+
+		$wc_product = wc_get_product($product_post);
+
+		$wc_product->set_stock_status(($is_category_enabled === true)? "instock" : "outofstock");
+		$wc_product->save();
+
+	}
+
+	return $new_value;
+
+}
+add_action("pre_update_option_" . schcat_get_option_name("date_start"), "schcat_update_products_stock_status", 10, 2);
 
 /**
  * -----------------------------
@@ -73,96 +124,164 @@ function schcat_get_field_name($setting)
  * -----------------------------
  */
 
-function schcat_init_current_category()
-{
-
-	if(!defined("SCHCAT_CURRENT_CATEGORY_ID")){
-		define("SCHCAT_CURRENT_CATEGORY_ID", schcat_get_current_category_id());
-	}
-
-}
-add_action("admin_init", "schcat_init_current_category");
-
 function schcat_init_admin_options()
 {
 
-	$option_group = schcat_get_option_group();
+	$option_group__category_dates = schcat_get_option_group();
 
-	if(get_option($option_group) == false){
-		add_option($option_group);
+	if(get_option($option_group__category_dates) == false){
+		add_option($option_group__category_dates);
+	}
+	if(get_option("schcat_option_group__settings") == false){
+		add_option("schcat_option_group__settings");
 	}
 
 
 
 	add_settings_section(
-		"schcat_category_section",
-		"Category",
-		"schcat_category_section_renderer",
-		"schcat_category_page"
+		"schcat_section__settings",
+		__("Réglages", "schcat"),
+		null,
+		"schcat_option_group__settings"
 	);
-
-	add_settings_field(
-		"schcat_category_field",
-		"Select a category",
-		"schcat_category_field_renderer",
-		"schcat_category_page",
-		"schcat_category_section"
-	);
-
-
-
 	add_settings_section(
-		"schcat_dates_section",
+		"schcat_section__category_selector",
+		__("Réglages de categorie", "schcat"),
+		null,
+		"schcat_option_group__category_selector"
+	);
+	add_settings_section(
+		"schcat_section__category_dates",
 		"Dates",
-		"schcat_dates_section_renderer",
-		$option_group
+		null,
+		$option_group__category_dates
 	);
+
+
 
 	add_settings_field(
-		schcat_get_field_name("date_start"),
-		"Date start",
-		"schcat_settings_field_renderer__date_start",
-		$option_group,
-		"schcat_dates_section"
+		"schcat_option__settings__remove_menu_item",
+		__("Retirer les catégories du menu", "schcat"),
+		"schcat_renderer__option__settings__remove_menu_item",
+		"schcat_option_group__settings",
+		"schcat_section__settings"
 	);
+	add_settings_field(
+		"schcat_option__settings__update_products_stock",
+		__("Mettre à jour l'état du stock des produits", "schcat"),
+		"schcat_renderer__option__settings__update_products_stock",
+		"schcat_option_group__settings",
+		"schcat_section__settings"
+	);
+	add_settings_field(
+		"schcat_option__settings__hide_category_products",
+		__("Cacher les produits", "schcat"),
+		"schcat_renderer__option__settings__hide_category_products",
+		"schcat_option_group__settings",
+		"schcat_section__settings"
+	);
+	add_settings_field(
+		"schcat_option__settings__disabled_category_message",
+		__("Message pour une catégorie désactivée", "schcat"),
+		"schcat_renderer__option__settings__disabled_category_message",
+		"schcat_option_group__settings",
+		"schcat_section__settings"
+	);
+
+
 
 	add_settings_field(
-		schcat_get_field_name("date_end"),
-		"Date end",
-		"schcat_settings_field_renderer__date_end",
-		$option_group,
-		"schcat_dates_section"
+		"schcat_option__category_selector",
+		__("Sélèctionnez une catégorie", "schcat"),
+		"schcat_renderer__option__category_selector",
+		"schcat_option_group__category_selector",
+		"schcat_section__category_selector"
 	);
 
-	register_setting($option_group, schcat_get_field_name("date_start"));
-	register_setting($option_group, schcat_get_field_name("date_end"));
+
+
+	add_settings_field(
+		schcat_get_option_name("date_start"),
+		__("Date début", "schcat"),
+		"schcat_renderer__option__category_dates__date_start",
+		$option_group__category_dates,
+		"schcat_section__category_dates"
+	);
+	add_settings_field(
+		schcat_get_option_name("date_end"),
+		__("Date fin", "schcat"),
+		"schcat_renderer__option__category_dates__date_end",
+		$option_group__category_dates,
+		"schcat_section__category_dates"
+	);
+
+	register_setting("schcat_option_group__settings", "schcat_option__settings__remove_menu_item", ['type' => "boolean"]);
+	register_setting("schcat_option_group__settings", "schcat_option__settings__update_products_stock", ['type' => "boolean"]);
+	register_setting("schcat_option_group__settings", "schcat_option__settings__hide_category_products", ['type' => "boolean"]);
+	register_setting("schcat_option_group__settings", "schcat_option__settings__disabled_category_message");
+	register_setting($option_group__category_dates, schcat_get_option_name("date_start"));
+	register_setting($option_group__category_dates, schcat_get_option_name("date_end"));
 
 }
 add_action("admin_init", "schcat_init_admin_options");
 
-function schcat_dates_section_renderer()
+function schcat_renderer__option__settings__remove_menu_item()
 {
+
+	$option_value = get_option("schcat_option__settings__remove_menu_item");
 
 	?>
 
-
+	<input type="checkbox" name="schcat_option__settings__remove_menu_item" <?php checked($option_value, "on"); ?>>
+	<p class="description"><?php _e("Cache les catégories non disponibles dans le menu principal.", "schcat") ?></p>
 
 	<?php
 
 }
 
-function schcat_category_section_renderer()
+function schcat_renderer__option__settings__update_products_stock()
 {
+
+	$option_value = get_option("schcat_option__settings__update_products_stock");
 
 	?>
 
-
+	<input type="checkbox" name="schcat_option__settings__update_products_stock" <?php checked($option_value, "on"); ?>>
+	<p class="description"><?php _e("L'état du stock de tous les produits d'une catégorie sera modifié pour correspondre à la disponibilité d'une catégorie à la date d'aujourd'hui lorsque les dates de disponibilité de la catégorie seront mises à jour.", "schcat") ?></p>
 
 	<?php
 
 }
 
-function schcat_category_field_renderer()
+function schcat_renderer__option__settings__hide_category_products()
+{
+
+	$option_value = get_option("schcat_option__settings__hide_category_products");
+
+	?>
+
+	<input type="checkbox" name="schcat_option__settings__hide_category_products" <?php checked($option_value, "on"); ?>>
+	<p class="description"><?php _e("Cache les produits d'une catégorie non disponible.", "schcat") ?></p>
+
+	<?php
+
+}
+
+function schcat_renderer__option__settings__disabled_category_message()
+{
+
+	$option_value = get_option("schcat_option__settings__disabled_category_message");
+
+	?>
+
+	<textarea name="schcat_option__settings__disabled_category_message" id="schcat_option__settings__disabled_category_message"><?php echo $option_value ?></textarea>
+	<p class="description"><?php _e("Message affiché sous le titre d'une catégorie non disponible. Laisser vide pour ne pas afficher de message.", "schcat") ?></p>
+
+	<?php
+
+}
+
+function schcat_renderer__option__category_selector()
 {
 
 	$product_categories = get_terms([
@@ -176,7 +295,7 @@ function schcat_category_field_renderer()
 
 		<?php foreach($product_categories as $product_category){ ?>
 
-			<option value="<?php echo $product_category->term_id ?>" <?php selected($product_category->term_id, SCHCAT_CURRENT_CATEGORY_ID) ?>><?php echo $product_category->name ?></option>
+			<option value="<?php echo $product_category->term_id ?>" <?php selected($product_category->term_id, schcat_get_current_category_id()) ?>><?php echo $product_category->name ?></option>
 
 		<?php } ?>
 
@@ -186,27 +305,29 @@ function schcat_category_field_renderer()
 
 }
 
-function schcat_settings_field_renderer__date_start()
+function schcat_renderer__option__category_dates__date_start()
 {
 
-	$option = get_option(schcat_get_field_name("date_start"));
+	$input_name = schcat_get_option_name("date_start");
+	$option_value = get_option($input_name);
 
 	?>
 
-	<input class="schcat-datepicker" type="text" name="<?php echo schcat_get_field_name("date_start") ?>" value="<?php echo $option ?>">
+	<input class="schcat-datepicker" type="text" name="<?php echo $input_name ?>" value="<?php echo $option_value ?>">
 
 	<?php
 
 }
 
-function schcat_settings_field_renderer__date_end()
+function schcat_renderer__option__category_dates__date_end()
 {
 
-	$option = get_option(schcat_get_field_name("date_end"));
+	$input_name = schcat_get_option_name("date_end");
+	$option_value = get_option($input_name);
 
 	?>
 
-	<input class="schcat-datepicker" type="text" name="<?php echo schcat_get_field_name("date_end") ?>" value="<?php echo $option ?>">
+	<input class="schcat-datepicker" type="text" name="<?php echo $input_name ?>" value="<?php echo $option_value ?>">
 
 	<?php
 
@@ -219,22 +340,34 @@ function schcat_create_admin_menu()
 {
 
 	add_menu_page(
-		"schcat_admin_menu_page",
-		"SchCat",
+		"Schedule Category",
+		"Schedule Category",
 		"administrator",
-		"schcat_admin_menu_page",
-		"schcat_admin_menu_page_renderer"
+		"schcat_page__admin_menu",
+		"schcat_renderer__page__admin_menu"
 	);
 
 }
 add_action("admin_menu", "schcat_create_admin_menu");
 
-function schcat_admin_menu_page_renderer()
+function schcat_renderer__page__admin_menu()
 {
 
 	?>
 
 	<div class="wrap">
+
+		<form action="options.php?cat_ID=<?php echo schcat_get_current_category_id() ?>" method="post">
+
+			<?php
+
+			settings_fields("schcat_option_group__settings");
+			do_settings_sections("schcat_option_group__settings");
+			submit_button();
+
+			?>
+
+		</form>
 
 		<form action="" id="schcat-category-form">
 
@@ -252,7 +385,7 @@ function schcat_admin_menu_page_renderer()
 
 			<?php
 
-			do_settings_sections("schcat_category_page");
+			do_settings_sections("schcat_option_group__category_selector");
 
 			?>
 
@@ -260,16 +393,16 @@ function schcat_admin_menu_page_renderer()
 
 		<?php
 
-		$option_group = schcat_get_option_group();
+		$option_group__category_dates = schcat_get_option_group();
 
 		?>
 
-		<form action="options.php?cat_ID=<?php echo SCHCAT_CURRENT_CATEGORY_ID ?>" method="post">
+		<form action="options.php?cat_ID=<?php echo schcat_get_current_category_id() ?>" method="post">
 
 			<?php
 
-			settings_fields($option_group);
-			do_settings_sections($option_group);
+			settings_fields($option_group__category_dates);
+			do_settings_sections($option_group__category_dates);
 			submit_button();
 
 			?>
