@@ -132,6 +132,31 @@ ul.products li.product .woocommerce-loop-product__title, ul.products li.product 
 	font-size:1.75rem;
 }
 
+ul.products li.product:before {
+	display: block;
+	content: ' ';
+	width: 270px;
+	background: #F9BFA1;
+	height: 270px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+ul.products li.product img {
+	display: block;
+	margin: 10px auto 1.618em;
+	position: relative;
+	border-radius: 15px;
+}
+
 .woocommerce-info, .woocommerce-noreviews, p.no-comments{
 	background-color:#de676f;
+}
+
+/* woocommerce overrides */
+.woocommerce-breadcrumb {
+	margin-bottom: 0em;
+}
+.storefront-full-width-content .woocommerce-products-header {
+	padding-bottom: 1em;
 }
