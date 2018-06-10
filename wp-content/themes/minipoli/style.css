@@ -80,6 +80,44 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'olivia';
+	src: url('assets/fonts/Olivia/olivia-regular.eot');
+	src: url('assets/fonts/Olivia/olivia-regular.eot?#iefix') format('embedded-opentype'),
+	url('assets/fonts/Olivia/olivia-regular.woff2') format('woff2'),
+	url('assets/fonts/Olivia/olivia-regular.woff') format('woff'),
+	url('assets/fonts/Olivia/olivia-regular.ttf') format('truetype'),
+	url('assets/fonts/Olivia/olivia-regular.svg#oliviaregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'tangerine_bold';
+	src: url('assets/fonts/Tangerine/tangerine_bold.eot');
+	src: url('assets/fonts/Tangerine/tangerine_bold.eot?#iefix') format('embedded-opentype'),
+	url('assets/fonts/Tangerine/tangerine_bold.woff2') format('woff2'),
+	url('assets/fonts/Tangerine/tangerine_bold.woff') format('woff'),
+	url('assets/fonts/Tangerine/tangerine_bold.ttf') format('truetype'),
+	url('assets/fonts/Tangerine/tangerine_bold.svg#tangerinebold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+	font-family: 'tangerine_regular';
+	src: url('assets/fonts/Tangerine/tangerine_regular.eot');
+	src: url('assets/fonts/Tangerine/tangerine_regular.eot?#iefix') format('embedded-opentype'),
+	url('assets/fonts/Tangerine/tangerine_regular.woff2') format('woff2'),
+	url('assets/fonts/Tangerine/tangerine_regular.woff') format('woff'),
+	url('assets/fonts/Tangerine/tangerine_regular.ttf') format('truetype'),
+	url('assets/fonts/Tangerine/tangerine_regular.svg#tangerineregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
 body, button, input, textarea{
 	font-family:ginora_sans;
 }
@@ -101,19 +139,20 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .site-description{
-	margin-bottom:4em;
-	text-align:center;
-	text-transform:uppercase;
-	letter-spacing:.25em;
-	line-height:2.5em;
-	font-weight:bold;
+	font-family: 'tangerine_regular', cursive;
+	text-align: center;
+	font-size: 4em;
+	line-height: 1em;
+	margin-bottom: 0.5em;
 }
 .site-description a{
-	font-weight:bold;
+	font-family: 'tangerine_bold', cursive;
+	color: #F9BFA1;
 }
 
 .site-search{
 	margin:0;
+	display: none;
 }
 
 .main-navigation ul li a{
