@@ -192,6 +192,54 @@ ul.products li.product img {
 	background-color:#de676f;
 }
 
+footer#colophon{
+	padding:0;
+	background-color:transparent;
+}
+footer#colophon p{
+	margin:0;
+	font-size:.8em;
+}
+footer#colophon .footer-top{
+	padding:.5em 0;
+	background-color:#de676f;
+	color:white;
+	font-weight:bold;
+}
+footer#colophon .rea .col-3{
+	float:left;
+	display:flex;
+	align-items:center;
+	width:25%;
+}
+footer#colophon .rea .col-3 img{
+	float:left;
+	width:20%;
+}
+footer#colophon .rs{
+	display:flex;
+	padding:1em 0;
+	align-items:center;
+	justify-content:center;
+	color:black;
+}
+footer#colophon .rs > *{
+	margin:0 .5em;
+}
+footer#colophon .site-info{
+	padding:1em 0;
+	border-top:1px solid #ddd;
+	text-align:center;
+	font-size:.8em;
+}
+
+.shop_table .product-name dl{
+	margin-bottom:0;
+}
+.shop_table .product-name dd{
+	margin:0;
+}
+
 /* woocommerce overrides */
 .woocommerce-breadcrumb {
 	margin-bottom: 0em;

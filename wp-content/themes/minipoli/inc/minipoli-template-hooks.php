@@ -14,4 +14,4 @@
  * @hooked storefront_primary_navigation_wrapper_close - 68
  */
 add_action('storefront_header', 'minipoli_site_baseline', 21);
-add_action('storefront_header', 'minipoli_header_banner', 22);
+//add_action('storefront_header', 'minipoli_header_banner', 22);

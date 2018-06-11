@@ -1,0 +1,8 @@
+.cmd_max .message{
+	font-size:.6em;
+}
+
+.cmd_max .threshold span{
+	font-size:1.25em;
+	font-weight:bold;
+}

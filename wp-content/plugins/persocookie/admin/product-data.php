@@ -21,29 +21,35 @@ add_action("admin_enqueue_scripts", "prsckie_admin_enqueue_scripts");
 /**
  * Add new admin product tab
  */
-function prsckie_product_data_tab($product_data_tabs)
+function prsckie_tabs($product_data_tabs)
 
 {
 	$product_data_tabs['prsckie'] = [
 		'label' => __("Perso Cookie", "woocommerce", "prsckie"),
-		'target' => "prsckie_product_data",
+		'target' => "prsckie_tab",
+		'class' => ["show_if_simple"]
+	];
+
+	$product_data_tabs['prsckie'] = [
+		'label' => __("Commande Max", "woocommerce", "prsckie"),
+		'target' => "cmd_max_tab",
 		'class' => ["show_if_simple"]
 	];
 
 	return $product_data_tabs;
 
 }
-add_filter("woocommerce_product_data_tabs", "prsckie_product_data_tab");
+add_filter("woocommerce_product_data_tabs", "prsckie_tabs");
 
 /**
  * Add new admin product tab fields
  */
-function prsckie_product_data_fields()
+function prsckie_tab_fields()
 {
 
 	?>
 
-	<div id="prsckie_product_data" class="panel woocommerce_options_panel">
+	<div id="prsckie_tab" class="panel woocommerce_options_panel">
 
 		<div class="options_group">
 
@@ -81,10 +87,28 @@ function prsckie_product_data_fields()
 
 	</div>
 
+	<div id="cmd_max_tab" class="panel woocommerce_options_panel">
+
+		<div class="options_group">
+
+			<?php
+
+			woocommerce_wp_text_input([
+				'id' => "_cmd_max_amount",
+				'label' => __("Nombre de produit max", "prsckie"),
+				'type' => 'number'
+			]);
+
+			?>
+
+		</div>
+
+	</div>
+
 	<?php
 
 }
-add_action("woocommerce_product_data_panels", "prsckie_product_data_fields");
+add_action("woocommerce_product_data_panels", "prsckie_tab_fields");
 
 /**
  * Save new admin product tab fields data
@@ -103,6 +127,10 @@ function prsckie_save_product_data_fields($post_id)
 	}
 	if(isset($_POST['_prsckie_required_message']) && !empty($_POST['_prsckie_required_message'])){
 		update_post_meta($post_id, '_prsckie_required_message', esc_attr($_POST['_prsckie_required_message']));
+	}
+
+	if(isset($_POST['_cmd_max_amount']) && !empty($_POST['_cmd_max_amount'])){
+		update_post_meta($post_id, '_cmd_max_amount', esc_attr($_POST['_cmd_max_amount']));
 	}
 
 }
