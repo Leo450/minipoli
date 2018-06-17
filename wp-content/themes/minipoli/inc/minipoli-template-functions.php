@@ -193,7 +193,12 @@ function storefront_site_title_or_logo( $echo = true ) {
 function storefront_credit() {
 	?>
 	<div class="site-info">
+		<div style="legal-links"><a href="#">Conditions générales de vente</a> &nbsp;&mdash;&nbsp; <a href="#">Mentions légales</a></div>
+	</div>
+	<div class="site-info">
 		<?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . date( 'Y' ) ) ); ?>
+		<div><small>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a>, <a href="http://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/yannick" title="Yannick">Yannick</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></small></div>
+
 	</div><!-- .site-info -->
 	<?php
 }
