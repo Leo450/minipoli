@@ -193,12 +193,91 @@ function storefront_site_title_or_logo( $echo = true ) {
 function storefront_credit() {
 	?>
 	<div class="site-info">
-		<div style="legal-links"><a href="#">Conditions générales de vente</a> &nbsp;&mdash;&nbsp; <a href="#">Mentions légales</a></div>
-	</div>
-	<div class="site-info">
 		<?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . date( 'Y' ) ) ); ?>
 		<div><small>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a>, <a href="http://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/yannick" title="Yannick">Yannick</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></small></div>
 
 	</div><!-- .site-info -->
 	<?php
+}
+
+/**
+ * Register Footer Menu
+ */
+add_action('after_setup_theme', 'minipoli_register_menu');
+function minipoli_register_menu() {
+	register_nav_menu('footer', __('Footer Menu', 'minipoli'));
+}
+
+if ( ! function_exists( 'minipoli_footer_navigation' ) ) {
+	/**
+	 * Display Footer Navigation
+	 *
+	 * @since  1.0.0
+	 * @return void
+	 */
+	function minipoli_footer_navigation() {
+		if ( has_nav_menu( 'footer' ) ) {
+			?>
+			<div class="site-info">
+				<nav class="footer-navigation" role="navigation" aria-label="<?php esc_html_e( 'Footer Navigation', 'storefront' ); ?>">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location'	=> 'footer',
+							'fallback_cb'		=> '',
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
+			</div>
+			<?php
+		}
+	}
+}
+
+function minipoli_homepage_subcategories()
+{
+
+	if(!is_front_page()){
+		return;
+	}
+
+	$categories = get_categories([
+		'taxonomy' => 'product_cat'
+	]);
+
+	$first_level_categories_ids = [];
+	$second_level_categories = [];
+
+	foreach($categories as $category){
+		if($category->parent == 0){
+			$first_level_categories_ids[] = $category->term_id;
+		}
+	}
+
+	foreach($categories as $category){
+		if($category->parent != 0 && in_array($category->parent, $first_level_categories_ids)){
+			$second_level_categories[] = $category;
+		}
+	}
+
+	?>
+
+	<div class="second-level-categories">
+		<ul>
+			<?php foreach($second_level_categories as $second_level_category){ ?>
+				<li>
+					<a href="<?php echo get_term_link($second_level_category->term_id); ?>"><?php echo $second_level_category->name; ?></a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+
+	<?php
+
+}
+
+add_filter('woocommerce_show_page_title', 'minipoli_show_page_title');
+function minipoli_show_page_title(){
+	return false;
 }

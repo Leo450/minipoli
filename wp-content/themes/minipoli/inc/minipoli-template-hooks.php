@@ -15,3 +15,13 @@
  */
 add_action('storefront_header', 'minipoli_site_baseline', 21);
 //add_action('storefront_header', 'minipoli_header_banner', 22);
+
+/**
+ * Footer
+ *
+ * @see  storefront_footer_widgets()
+ * @see  storefront_credit()
+ */
+add_action('storefront_footer', 'minipoli_footer_navigation', 11);
+
+add_action('woocommerce_before_main_content', 'minipoli_homepage_subcategories', 1);

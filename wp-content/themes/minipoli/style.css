@@ -211,6 +211,17 @@ footer#colophon .footer-top{
 	color:white;
 	font-weight:bold;
 }
+footer#colophon .footer-top a{
+	display:flex;
+	width:100%;
+	align-items:center;
+}
+footer#colophon .footer-top a p{
+	color:white;
+	font-size:.9em;
+	font-weight:bold;
+	white-space:nowrap;
+}
 footer#colophon .rea .col-3{
 	float:left;
 	display:flex;
@@ -245,12 +256,48 @@ footer#colophon .site-info .legal-links {
 	font-size: 120%;
 }
 
+footer#colophon .site-info ul{
+	margin:0;
+	list-style:none;
+}
+footer#colophon .site-info ul li{
+	display:inline;
+}
+footer#colophon .site-info ul li:after{
+	content:' — ';
+	margin:0 5px;
+}
+footer#colophon .site-info ul li:last-child:after{
+	display:none;
+}
+
 .shop_table .product-name dl{
 	margin-bottom:0;
 }
-.shop_table .product-name dd{
+.widget_shopping_cart .mini_cart_item dl{
+	margin-bottom:-1.5em;
+}
+.shop_table .product-name dd, .widget_shopping_cart .mini_cart_item dd{
 	margin:0;
 }
+
+
+.second-level-categories ul{
+	display:flex;
+	justify-content:center;
+	margin:0;
+	list-style:none;
+}
+.second-level-categories ul li{
+	display:inline-block;
+	padding:.5em 1em;
+}
+.second-level-categories ul li a{
+	font-size:1.5em;
+	font-weight:bold;
+	color:black;
+}
+
 
 /* woocommerce overrides */
 .woocommerce-breadcrumb {

@@ -32,8 +32,10 @@
 					<p>Fabrication artisanale</p>
 				</div>
 				<div class="col-3">
-					<img src="<?php echo get_stylesheet_directory_uri() . "/assets/img/icon_envelope.png"; ?>" alt="Contactez-nous">
-					<p>Contactez-nous</p>
+					<a href="/nous-contacter/">
+						<img src="<?php echo get_stylesheet_directory_uri() . "/assets/img/icon_envelope.png"; ?>" alt="Contactez-nous">
+						<p>Contactez-nous</p>
+					</a>
 				</div>
 				<div class="clear"></div>
 			</div>
